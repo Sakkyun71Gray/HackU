@@ -7,7 +7,7 @@
 }
 
 body {
-  background: linear-gradient(135deg, #10100E, #cc0033, #10100E);
+  background: #fff;
   width: 100%; /* リキッド */
   max-width: 1080px; /* 幅の上限 */
   min-width: 200px; /* 幅の下限 */
