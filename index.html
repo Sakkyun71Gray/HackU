@@ -1,38 +1,367 @@
-<a!DOCTYPE html>
-<html lang = "ja">
-<head>
-  <meta chartest = "utf-8">
-  <title>自作ピクトグラム作成2</title>
-  <link rel = "stylesheet" href = "style/style.css">
-  </head>
-  <body>
-  <div class = "wrapper">
-  
-  <header>
-  	<h1>自作ピクトグラム投稿サイト</h1>
-  	<div><img src = "images/keyvisual.jpg" width = "900" height = "280" alt= ""></div>
-    ここに写真を挿入
-  	<nav>
-  		<ul>
-  			<li><a href = "#">ピクトグラム作成</a><li>
-  			<li><a href = "#">ピクトグラム閲覧</a><li>
-  			<li><a href = "#">ピクトグラム検索</a><li>
-        <li><a href = "#">ピクトグラム～～</a><li>
-  		</ul>
-  	</nav>
-  </header>
-  
-  <div class = "main">
-  	<section>
-  		<h1>お知らせ</h1>
-  		<p>ここに説明を</p>
-  	</section>
-  </div>
-  
-  <footer>
-  	<small>Copy right (c)
-  	</small>
-  <footer>
- <div>
- </body>
+<!DOCTYPE html>
 <html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>自作ピクトグラム作成サイト</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
+    <!-- アイコンフォントの利用方法 http://fortawesome.github.io/Font-Awesome/ -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <style>
+      		* {
+          margin: 0px;
+          padding: 0px;
+        }
+
+		body {
+          background: linear-gradient(135deg, #10100E, #cc0033, #10100E);
+          width: 100%; /* リキッド */
+          max-width: 1080px; /* 幅の上限 */
+          min-width: 200px; /* 幅の下限 */
+          margin: 0px auto
+        }
+        a:link {
+          color: #FFFFFF;
+          text-decoration: none;
+        }
+
+        a:hover {
+          color: #FFFFFF;
+          text-decoration: none;
+        }
+
+        a:visited {
+          color: #FFFFFF;
+          text-decoration: none;
+        }
+
+        header{
+          width: 100%; /* リキッド ヘッダー*/
+          box-sizing: border-box;
+          padding: 3em;
+          color: white;
+          text-align: center;
+        }
+
+      	menu_above_blank{
+            width: 2%;
+            float:left;
+          	height:25px;
+          }
+
+        menu_above{
+            width: 97%;
+            float:left;
+            height:25px;
+          	background-color:#333333
+          }
+
+      	.a{
+          width: 19.75%;
+          float:left;
+          height:25px;
+          font-size: 20px;
+          color:white;
+          font-family: 'Arial Black','ヒラギノ角ゴシック','Hiragino Sans','メイリオ', Meiryo,'ヒラギノ角ゴ StdN','Hiragino Kaku Gothic StdN',sans-serif;
+          border:1px solid;
+          border-color:#FFFFFF
+        }
+
+        menu{
+          width: 25%; /* リキッド ヘッダー*/
+          float:left;
+          height:450px;
+          font-size: 2em;
+          line-height:200%;
+          color:white;
+          font-family: 'Arial Black','ヒラギノ角ゴシック','Hiragino Sans','メイリオ', Meiryo,'ヒラギノ角ゴ StdN','Hiragino Kaku Gothic StdN',sans-serif;
+          border:1px solid;
+          border-color:#FFFFFF
+        }
+
+		center_photo{
+          width:100%;
+          float:left;
+          height:700px;
+        }
+
+      	center_news{
+			width:100%;
+          	height:700px;
+            float:left;
+      	}
+
+       blank{
+          width:100%;
+          float:left;
+          height: 30px;
+        }
+
+      	blank_side{
+          width:2%;
+          float:left;
+          height: 900px;
+        }
+
+        section {
+          width: 35%; /* リキッド セクション */
+          height: 900px;
+          float: left;
+        }
+
+        .item0 {
+          width: 100%; /* リキッド item0 */
+          height: 210px;
+          background-color:#333333
+        }
+
+        .item1 {
+          width: 100%; /* リキッド item1 */
+          height: 80px;
+          font-size: 2em;
+          color:white;
+          font-family: 'Arial Black','ヒラギノ角ゴシック','Hiragino Sans','メイリオ', Meiryo,'ヒラギノ角ゴ StdN','Hiragino Kaku Gothic StdN',sans-serif;
+          background-color:#333333
+        }
+
+        .bla {
+          width: 100%; /* リキッド item2 */
+          height: 30px;
+          background-color:#333333
+        }
+
+        .item3 {
+          width: 100%; /* リキッド item3 */
+          height: 200px;
+          background-color: #dcdcdc;
+        }
+
+      .article {
+        margin: 0 auto 48px;
+        width: 960px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        *zoom: 1;
+      }
+
+      .content:after,
+      .article:after,
+      .article-paragraph:after {
+        display: block;
+        clear: both;
+        content: '';
+      }
+
+      .article-title {
+        padding-bottom: 6px;
+        border-bottom: #333 solid 1px;
+      }
+
+      .article-title,
+      .article-paragraph-title {
+        clear: both;
+        margin: 0 0 24px;
+      }
+
+      .article-date {
+        margin: 0 0 6px;
+        color: #999;
+        font-size: 0.9em;
+      }
+
+      .article-paragraph {
+        margin: 0 0 24px;
+        line-height: 1.7;
+        *zoom: 1;
+      }
+
+      .article-list {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+      }
+
+      .article-list > li {
+        padding: 12px 0;
+        border-bottom: #ddd dotted 1px;
+      }
+
+      .article-list > li:last-child {
+        border-bottom: none;
+      }
+
+      .article-list-date {
+        padding-right: 12px;
+        color: #999;
+      }
+
+      img.article-img {
+        display: inline;
+      }
+
+      .article-paragraph:last-child,
+      .article-img:last-child {
+        margin: 0;
+      }
+
+      .news{
+        background:#fff;
+      }
+    </style>
+
+    <script>
+      // 画面上部にスクロールするボタン
+      $(function() {
+        var pageTop = $('.btn-pagetop');
+        pageTop.hide();
+        $(window).scroll(function() {
+          if ($(this).scrollTop() > 600) {
+            pageTop.fadeIn();
+          } else {
+            pageTop.fadeOut();
+          }
+        });
+        pageTop.click(function() {
+          $('body, html').animate({
+            scrollTop: 0
+          }, 500, 'swing');
+          pageTop.blur();
+          return false;
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+     <header>
+      <a href="index.html"><img src="/photo/G.png" height="140" hspace="25" vspace="25"></a><br>
+    </header>
+
+    <menu_above_blank>
+    </menu_above_blank>
+
+    <menu_above>
+      <div align="center">
+        <a href="/home7.html">
+          <div class="a">
+            <b>
+              <font color="red">home</font>
+            </b>
+          </div>
+        </a>
+        <a href="/new_member3.html">
+          <div class="a">
+            <b>
+              member
+            </b>
+          </div>
+        </a>
+        <a href="http://rits3athlon.bbs.fc2.com/">
+          <div class="a">
+            <b>
+              BBS
+            </b>
+          </div>
+        </a>
+        <a href="http://blog.livedoor.jp/rits_triathlon/">
+          <div class="a">
+            <b>
+              blog
+            </b>
+          </div>
+        </a>
+        <a href="/result.html">
+          <div class="a">
+            <b>
+              results
+            </b>
+          </div>
+        </a>
+      </div>
+    </menu_above>
+
+    <menu_above_blank>
+    </menu_above_blank>
+
+    <menu_above>
+      <div align="center">
+        <a href="/team_goal.html">
+          <div class="a">
+            <b>
+              team goals
+            </b>
+          </div>
+        </a>
+        <a href="/facilities.html">
+          <div class="a">
+            <b>
+              facilities
+            </b>
+          </div>
+        </a>
+        <a href="/about_us.html">
+          <div class="a">
+            <b>
+              about us
+            </b>
+          </div>
+        </a>
+        <a href="https://twitter.com/rits3athlon">
+          <div class="a">
+            <b>
+			  twitter <font color="#55acee"><i class="fa fa-twitter"></i></font>
+            </b>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/rits3athlon/">
+          <div class="a">
+            <b>
+              instagram <font color="white"><i class="fa fa-instagram"></i></font>
+            </b>
+          </div>
+        </a>
+      </div>
+    </menu_above>
+
+	<blank>
+    </blank>
+
+    <center_photo>
+      <div align="center">
+      	<img src="/photo/awazi_gassyuku2019.jpg" width="85%" alt="センター写真"><img/>
+      </div>
+    </center_photo>
+
+    <center_news>
+      <div class="article">
+            <h2 class="news">更新履歴
+              <ul class="article-list">
+                  <li>
+                      <span class="article-list-date">20xx年xx月xx日</span>更新情報が入ります
+                  </li>
+                  <li>
+                      <span class="article-list-date">20xx年xx月xx日</span>更新情報が入ります
+                  </li>
+                  <li>
+                      <span class="article-list-date">20xx年xx月xx日</span>更新情報が入ります
+                  </li>
+                  <li>
+                      <span class="article-list-date">20xx年xx月xx日</span>更新情報が入ります
+                  </li>
+                  <li>
+                      <span class="article-list-date">20xx年xx月xx日</span>更新情報が入ります
+                  </li>
+              </ul>
+            </h2>
+          </div>
+    </center_news>
+
+      <a href="#top" class="btn-pagetop"><i class="fa fa-arrow-up"></i></a>
+  </body>
+</html>
+
