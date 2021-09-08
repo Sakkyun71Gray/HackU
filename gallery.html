@@ -144,7 +144,7 @@ async function GetList(){
   source = db.collection("pics").doc("name");
   const Dict = await source.get();
   List = Object.values(Dict.data());
-  AddList(List);
+  //AddList(List);
 }
 
 async function Get(){
