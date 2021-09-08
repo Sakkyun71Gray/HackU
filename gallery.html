@@ -139,6 +139,42 @@
 	  
     let st = firebase.storage().ref();
 	  
+    async function GetList(){
+    var List;
+    db.collection("pics").doc("name")
+    .get().then(function (nameList) {
+      List = Object.values(nameList.data());
+      console.log("Got list: ", List);
+      return List;
+    })
+    .catch(function(e){
+      List = null;
+      console.log("could not get list: ", e);
+      throw null
+    });
+}  
+  
+GetList().then(PicArr =>{
+  var PicStage = document.getElementById("pic");
+
+  for(pic in PicArr){
+    ref = st.child(pic);
+    ref.getDownloadURL().then((url) => {
+      var addImg = document.createElement("img");
+      addImg.src = url;
+      addImg.title = url.substr(0, 4);
+      addImg.alt = url.substr(0, 4);
+      PicStage.appendChild(addImg);
+    });
+  }
+});
+
+GetList().catch(e=>{
+  console.log("error");
+});
+
+GetList();
+	  
 	  /*
 async function GetList(){
     var List;
@@ -186,6 +222,7 @@ GetList();
 	});
 	*/
 	  
+	/*  
   function GetList(){
     var List;
     db.collection("pics").doc("name")
@@ -202,7 +239,6 @@ GetList();
 	  
   var PicArr = GetList();
   console.log(PicArr);
-  console.log(type PicArr);
 	  
  var PicStage = document.getElementById("pic");
 
@@ -216,6 +252,7 @@ for(var i=0; i<PicArr.length; i++){
     PicStage.appendChild(addImg);
   });
 }
+	  */
 	  
 	  
 	  
