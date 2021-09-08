@@ -152,7 +152,9 @@ async function AddList(PicList){
 
   for(i in PicList){
     var addDiv = document.createElement("div");
-    addDiv.innerHTML = PicList[i].substr(0, PicList[i].length-4);
+    addDiv.appendChild(document.createTextNode(
+      PicList[i].substr(0, PicList[i].length-4))
+    );
 
     console.log(PicList[i].substr(0, PicList[i].length-4));
     ref = st.child(PicList[i]);
@@ -163,11 +165,14 @@ async function AddList(PicList){
     addImg.alt = PicList[i].substr(0, PicList[i].length-4);
     addImg.height = `${window.innerWidth/4}`;
     addImg.width = `${window.innerWidth/4}`;
+
+    //addDiv.appendChild(addImg);
     PicStage.appendChild(addDiv);
   }
 }
 
 GetList();
+
 
   </script>
 </body>
