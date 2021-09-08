@@ -1,79 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>自作ピクトグラム作成サイト</title>
-    <link rel = "stylesheet" href = "style/style.css">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | HackU</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <script src="TemplateData/UnityProgress.js"></script>
+    <script src="Build/UnityLoader.js"></script>
+    <script>
+      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/HackBuildResult.json", {onProgress: UnityProgress});
+    </script>
   </head>
-
   <body>
-    <header>
-	<font color="black"><font size="10px">自作ピクトグラム作成サイト</font></font>
-    </header>
-
-    <menu_above_blank>
-    </menu_above_blank>
-
-    <menu_above>
-      <div align="center">
-        <a href="index.html">
-          <div class="a">
-            <b>
-              ホーム
-            </b>
-          </div>
-        </a>
-	      
-        <a href="make.html">
-          <div class="a">
-            <b>
-              <font color="red">ピクトグラム作成</font>
-            </b>
-          </div>
-        </a>
-	      
-        <a href="gallery.html">
-          <div class="a">
-            <b>
-              ピクトグラム閲覧
-            </b>
-          </div>
-        </a>
-	      
-        <a href="search.html">
-          <div class="a">
-            <b>
-              ピクトグラム検索
-            </b>
-          </div>
-        </a>
-	      
-        <a href="other.html">
-          <div class="a">
-            <b>
-              その他
-            </b>
-          </div>
-        </a>
+    <div class="webgl-content">
+      <div id="unityContainer" style="width: 960px; height: 600px"></div>
+      <div class="footer">
+        <div class="webgl-logo"></div>
+        <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
+        <div class="title">HackU</div>
       </div>
-    </menu_above>
-
-    <menu_above_blank>
-    </menu_above_blank>
-
-	<blank>
-    </blank>
-
-    <center_photo>
-      <div align="center">
-      	<img src="/photo/awazi_gassyuku2019.jpg" width="85%" alt="ここに写真を"><img/>
-      </div>
-    </center_photo>
-
-      <a href="#top" class="btn-pagetop"><i class="fa fa-arrow-up"></i></a>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-storage.js"></script>
   </body>
 </html>
-
-
