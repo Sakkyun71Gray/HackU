@@ -146,7 +146,6 @@ function GetList(){
     .get().then(function (nameList) {
       List = Object.values(nameList.data());
       console.log("Got list: ", List);
-      resolve(List);
     }).then(function(){
       AddList(List);
     });
@@ -159,7 +158,7 @@ function GetList(){
 }  
 
 function AddList(PicArr){
-  console.log("test:1");
+  console.log("test:2");
   console.log("0");
   //var PicArr =  await GetList();
   console.log("1", PicArr);
