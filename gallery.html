@@ -139,7 +139,10 @@
 	  
     let st = firebase.storage().ref();
 	  
+var List;
+
 function GetList(){
+  return new Promise(function(resolve){
     var List;
     db.collection("pics").doc("name")
     .get().then(function (nameList) {
@@ -150,7 +153,8 @@ function GetList(){
       List = null;
       console.log("could not get list: ", e);
     });
-  return List;
+    resolve(List);
+  });
 }  
   
 async function AddList(){
