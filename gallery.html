@@ -145,6 +145,7 @@ async function GetList(){
   const Dict = await source.get();
   List = Object.values(Dict.data());
   AddList(List);
+  //af(List);
 }
 
 async function Get(){
@@ -162,6 +163,7 @@ async function AddList(PicList){
   var PicStage = document.getElementById("pic");
 
   for(pic in PicList){
+    console.log(pic);
     ref = st.child("test.png");
     var url = undefined;
     url = await ref.getDownloadURL();
@@ -175,6 +177,7 @@ async function AddList(PicList){
 }
 
 GetList();
+
 
 
 
