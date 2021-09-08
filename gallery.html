@@ -164,10 +164,11 @@
 	  
   var PicArr = GetList();
   console.log(PicArr);
+  console.log(PicArr.length);
 	  
  var PicStage = document.getElementById("pic");
 
-for(var i=0; i<PicArr.length(); i++){
+for(var i=0; i<PicArr.length; i++){
   ref = st.child(PicArr[i]);
   ref.getDownloadURL().then((url) => {
     var addImg = document.createElement("img");
