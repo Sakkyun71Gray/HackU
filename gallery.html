@@ -147,7 +147,7 @@
 	  
   function GetList(){
     var List;
-    conf.db.collection("pics").doc("name")
+    db.collection("pics").doc("name")
     .get().then(function (nameList) {
       List = Object.values(nameList.data());
       console.log("Got list: ", List);
