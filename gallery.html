@@ -143,7 +143,9 @@ async function GetList(){
   var List;
   source = db.collection("pics").doc("name");
   const Dict = await source.get();
+  console.log(Dict.data());
   List = Object.values(Dict.data());
+  console.log(List);
   AddList(List);
   //af(List);
 }
@@ -177,12 +179,6 @@ async function AddList(PicList){
 }
 
 GetList();
-
-
-
-
-
-
 	  
 	  /*
 async function GetList(){
