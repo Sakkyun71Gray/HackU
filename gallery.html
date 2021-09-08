@@ -139,30 +139,29 @@
 	  
     let st = firebase.storage().ref();
 	  
-var List;
-
 function GetList(){
-  return new Promise(function(resolve){
+  //return new Promise(function(resolve){
     var List;
     db.collection("pics").doc("name")
     .get().then(function (nameList) {
       List = Object.values(nameList.data());
       console.log("Got list: ", List);
       resolve(List);
-    })
-    .catch(function(e){
-      List = null;
-      console.log("could not get list: ", e);
-      resolve(List);
+    }).then(function(){
+      AddList(List);
     });
-    console.log("resolve");
-  });
+    //.catch(function(e){
+    //  List = null;
+    //  console.log("could not get list: ", e);
+    //  resolve(List);
+    //});
+  //})
 }  
-  
-async function AddList(){
+
+function AddList(PicArr){
   console.log("test:1");
   console.log("0");
-  var PicArr =  await GetList();
+  //var PicArr =  await GetList();
   console.log("1", PicArr);
 
   var PicStage = document.getElementById("pic");
@@ -180,9 +179,7 @@ async function AddList(){
   }
 }
 
-AddList();
-
-AddList();
+GetList();
 	  
 	  /*
 async function GetList(){
