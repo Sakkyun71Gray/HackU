@@ -139,44 +139,25 @@
 	  
     let st = firebase.storage().ref();
 	  
-function GetList(){
-  var List;
-  db.collection("pics").doc("name")
-  .get().then(function (nameList) {
-    List = Object.values(nameList.data());
-    console.log("Got list: ", List);
-  })
-  .catch(function(e){
-    List = null;
-    console.log("could not get list: ", e);
-  });
+async function GetList(){
+  var Dict, List;
+  source = db.collection("pics").doc("name");
+  Dict = await source.get();
+  List = Object.values(Dict.data());
+  AddList(List);
 }
 
 async function Get(){
-  a = db.collection("pics").doc("name");
+  result = db.collection("pics").doc("name");
   console.log("test:1");
   const nameList = await a.get();
   console.log("0", nameList.data() );
-  console.log("1", nameList.data() );
-  console.log("2", nameList.data() );
-  console.log("3", nameList.data() );
-  console.log("4", nameList.data() );
-  console.log("5", nameList.data() );
-  console.log("6", nameList.data() );
-  console.log("7", nameList.data() );
-  console.log("8", nameList.data() );
 }
 
-function AddList(PicArr){
-  console.log("test:3");
-  console.log("0");
-  //var PicArr =  await GetList();
-  console.log("1", PicArr);
-
+function AddList(PicList){
   var PicStage = document.getElementById("pic");
 
   for(pic in PicArr){
-    console.log("2");
     ref = st.child(pic);
     ref.getDownloadURL().then((url) => {
       var addImg = document.createElement("img");
@@ -188,7 +169,8 @@ function AddList(PicArr){
   }
 }
 
-Get();
+GetList();
+
 
 	  
 	  /*
