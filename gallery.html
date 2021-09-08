@@ -164,21 +164,23 @@ async function af(PicList){
 async function AddList(PicList){
   var PicStage = document.getElementById("pic");
 
-  for(pic in PicList){
-    console.log(pic);
-    ref = st.child("test.png");
+  for(i in PicList){
+    console.log(PicList[i]);
+    console.log(PicList[i].substr(0, 4));
+    ref = st.child(PicList[i]);
     var url = undefined;
     url = await ref.getDownloadURL();
     console.log(url);
     var addImg = document.createElement("img");
     addImg.src = url;
-    addImg.title = url.substr(0, 4);
-    addImg.alt = url.substr(0, 4);
+    addImg.title = PicList[i].substr(0, 4);
+    addImg.alt = PicList[i].substr(0, 4);
     PicStage.appendChild(addImg);
   }
 }
 
 GetList();
+
 
 	  
 	  /*
