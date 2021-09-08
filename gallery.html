@@ -152,7 +152,7 @@ async function AddList(PicList){
 
   for(i in PicList){
     var addDiv = document.createElement("div");
-    addDiv.innreHTML = PicList[i].substr(0, PicList[i].length-4);
+    addDiv.innerHTML = PicList[i].substr(0, PicList[i].length-4);
 
     console.log(PicList[i].substr(0, PicList[i].length-4));
     ref = st.child(PicList[i]);
