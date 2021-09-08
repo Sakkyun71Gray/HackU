@@ -52,6 +52,7 @@
 </head>
 
 <body>
+	
   <!-- ナビゲーションバーの配置。参考 https://getbootstrap.jp/docs/4.5/components/navbar/ -->
   <nav class="navbar navbar-dark bg-primary">
     <span class="navbar-brand mb-0 h1">ToDo App</span>
@@ -74,6 +75,8 @@
 
     <!-- タスクをリスト表示するための場所 -->
     <div id="list"></div>
+	  
+    <img src="" alt="pic" title="no_title" id = "pic">
 
     <!-- Modalの作成。参考 https://getbootstrap.jp/docs/4.5/components/modal/ -->
     <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
@@ -131,8 +134,20 @@
 	  });
 	  
     let db = firebase.firestore(); // データベースに関する機能の取得
+	  
+    let st = firebase.storage().ref();
+
+   	ref = st.child('test.png');
+	ref.getDownloadURL().then((url) => {
+  	document.getElementById('pic').src = url;
+	});
+	  
+	  
+	  
+    
 
     // 保持されている全てのタスクデータを取得し、表示する
+	  /*
     function getAll() {
       let collection = db.collection("tasks").orderBy('create_at', 'asc'); // 作成された順にデータを並べてタスクデータをデータベースから取得する
       collection.get().then((querySnapshot) => { // 取得したデータを読み取る
@@ -253,6 +268,7 @@
       $('#taskNameForEdit').css("display", "none"); // タスク名を入力するための inputbox を非表示にする
       $('#warningMsg').css("display", "inline"); // 削除用の警告メッセージを表示する
     }
+    */
     
   </script>
 </body>
