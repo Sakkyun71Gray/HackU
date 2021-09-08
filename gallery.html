@@ -140,9 +140,9 @@
     let st = firebase.storage().ref();
 	  
 async function GetList(){
-  var Dict, List;
+  var List;
   source = db.collection("pics").doc("name");
-  Dict = await source.get();
+  const Dict = await source.get();
   List = Object.values(Dict.data());
   AddList(List);
 }
