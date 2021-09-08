@@ -75,9 +75,10 @@
 
     <!-- タスクをリスト表示するための場所 -->
     <div id="list"></div>
-    <button type="button" id="deleteBtn" class="btn btn-danger" onclick="GetList()">Delete</button>
 	  
-    <img src="" alt="pic" title="no_title" id = "pic">
+    <div id="pic"></div>
+	  
+    <img src="" alt="pic" title="no_title" id = "pic1">
 
     <!-- Modalの作成。参考 https://getbootstrap.jp/docs/4.5/components/modal/ -->
     <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
@@ -139,11 +140,13 @@
     let st = firebase.storage().ref();
 	  
 	  
-
+	  
+/*
    	ref = st.child('test.png');
 	ref.getDownloadURL().then((url) => {
   	document.getElementById('pic').src = url;
 	});
+	*/
 	  
   function GetList(){
     var List;
@@ -161,6 +164,19 @@
 	  
   var PicArr = GetList();
   console.log(PicArr);
+	  
+ var PicStage = document.getElementById("pic");
+
+for(var i=0; i<PicArr.length; i++){
+  ref = st.child(PicArr[i]);
+  ref.getDownloadURL().then((url) => {
+    var addImg = document.createElement("img");
+    addImg.src = url;
+    addImg.title = url.substr(0, 4);
+    addImg.alt = url.substr(0, 4);
+    PicStage.appendChild(addImg);
+  });
+}
 	  
 	  
 	  
