@@ -140,21 +140,20 @@
     let st = firebase.storage().ref();
 	  
 function GetList(){
-  //return new Promise(function(resolve){
-    var List;
-    db.collection("pics").doc("name")
-    .get().then(function (nameList) {
-      List = Object.values(nameList.data());
-      console.log("Got list: ", List);
-    }).then(function(){
-      AddList(List);
-    });
-    //.catch(function(e){
-    //  List = null;
-    //  console.log("could not get list: ", e);
-    //  resolve(List);
-    //});
-  //})
+  var List;
+  db.collection("pics").doc("name")
+  .get().then(function (nameList) {
+    List = Object.values(nameList.data());
+    console.log("Got list: ", List);
+    return(List);
+  }).then(function(result){
+    AddList(result);
+  });
+  //.catch(function(e){
+  //  List = null;
+  //  console.log("could not get list: ", e);
+  //  resolve(List);
+  //});
 }  
 
 function AddList(PicArr){
