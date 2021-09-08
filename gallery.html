@@ -154,7 +154,7 @@ async function GetList(){
     });
 }  
   
-GetList.then(PicArr){
+GetList.then(PicArr =>{
   var PicStage = document.getElementById("pic");
 
   for(var i=0; i<PicArr.length; i++){
@@ -167,11 +167,11 @@ GetList.then(PicArr){
       PicStage.appendChild(addImg);
     });
   }
-}
+});
 
-GetList.catch(e){
+GetList.catch(e=>{
   console.log("error");
-}
+});
 
 GetList();
 	  
