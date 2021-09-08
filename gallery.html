@@ -75,6 +75,7 @@
 
     <!-- タスクをリスト表示するための場所 -->
     <div id="list"></div>
+    <button type="button" id="deleteBtn" class="btn btn-danger" onclick="GetList()">Delete</button>
 	  
     <img src="" alt="pic" title="no_title" id = "pic">
 
@@ -136,11 +137,28 @@
     let db = firebase.firestore(); // データベースに関する機能の取得
 	  
     let st = firebase.storage().ref();
+	  
+	  
 
    	ref = st.child('test.png');
 	ref.getDownloadURL().then((url) => {
   	document.getElementById('pic').src = url;
 	});
+	  
+  function GetList(){
+    var List;
+    conf.db.collection("pics").doc("name")
+    .get().then(function (nameList) {
+      List = Object.values(nameList.data());
+      console.log("Got list: ", List);
+    })
+    .catch(function(e){
+      List = null;
+      console.log("could not get list: ", e);
+    });
+    return List;
+  }
+	  
 	  
 	  
 	  
