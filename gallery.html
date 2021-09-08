@@ -145,16 +145,26 @@ function GetList(){
   .get().then(function (nameList) {
     List = Object.values(nameList.data());
     console.log("Got list: ", List);
-    return(List);
-  //}).then(function(result){
-  //  AddList(result);
+  })
+  .catch(function(e){
+    List = null;
+    console.log("could not get list: ", e);
   });
-  //.catch(function(e){
-  //  List = null;
-  //  console.log("could not get list: ", e);
-  //  resolve(List);
-  //});
-}  
+}
+async function Get(){
+  a = db.collection("pics").doc("name");
+  console.log("test:0");
+  const nameList = await a.get();
+  console.log("0");
+  console.log("1");
+  console.log("2");
+  console.log("3");
+  console.log("4");
+  console.log("5");
+  console.log("6");
+  console.log("7");
+  console.log("8");
+}
 
 function AddList(PicArr){
   console.log("test:3");
@@ -177,7 +187,7 @@ function AddList(PicArr){
   }
 }
 
-GetList();
+Get();
 	  
 	  /*
 async function GetList(){
