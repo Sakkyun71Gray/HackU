@@ -164,8 +164,8 @@ async function AddList(PicList){
     addImg.src = url;
     addImg.title = PicList[i].substr(0, PicList[i].length-4);
     addImg.alt = PicList[i].substr(0, PicList[i].length-4);
-    addImg.height = `${window.innerWidth/6}`;
-    addImg.width = `${window.innerWidth/6}`;
+    addImg.height = `${window.innerWidth/4}`;
+    addImg.width = `${window.innerWidth/4}`;
 
     var addLiImg = document.createElement("li");
     addLiImg.appendChild(addImg);
