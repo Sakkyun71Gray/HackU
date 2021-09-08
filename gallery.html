@@ -152,7 +152,7 @@ function GetList(){
   });
 }
 
-async function GetAsync(){
+async function Get(){
   a = db.collection("pics").doc("name");
   console.log("test:1");
   const nameList = await a.get();
