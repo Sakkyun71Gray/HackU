@@ -162,7 +162,7 @@ async function AddList(PicList){
   var PicStage = document.getElementById("pic");
 
   for(pic in PicList){
-    ref = st.child(pic);
+    ref = st.child("test.png");
     var url = undefined;
     url = await ref.getDownloadURL();
     console.log(url);
