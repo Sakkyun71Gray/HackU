@@ -157,7 +157,7 @@ async function Get(){
 function AddList(PicList){
   var PicStage = document.getElementById("pic");
 
-  for(pic in List){
+  for(pic in PicList){
     ref = st.child(pic);
     ref.getDownloadURL().then((url) => {
       var addImg = document.createElement("img");
