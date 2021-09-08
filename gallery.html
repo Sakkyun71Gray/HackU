@@ -147,39 +147,28 @@ async function GetList(){
   List = Object.values(Dict.data());
   console.log("Lis", List);
   AddList(List);
-  //af(List);
-}
-
-async function Get(){
-  result = db.collection("pics").doc("name");
-  console.log("test:1");
-  const nameList = await a.get();
-  console.log("0", nameList.data() );
-}
-
-async function af(PicList){
-  console.log("after", PicList);
 }
 
 async function AddList(PicList){
   var PicStage = document.getElementById("pic");
 
   for(i in PicList){
-    console.log(PicList[i]);
-    console.log(PicList[i].substr(0, 4));
+    console.log(PicList[i].substr(0, -4));
     ref = st.child(PicList[i]);
     var url = undefined;
     url = await ref.getDownloadURL();
-    console.log(url);
     var addImg = document.createElement("img");
     addImg.src = url;
-    addImg.title = PicList[i].substr(0, 4);
-    addImg.alt = PicList[i].substr(0, 4);
+    addImg.title = PicList[i].substr(0, -4);
+    addImg.alt = PicList[i].substr(0, -4);
+    addImg.height = `${window.innerWidth*/4}`;
+    addImg.width = `${window.innerWidth*/4}`;
     PicStage.appendChild(addImg);
   }
 }
 
 GetList();
+
 
 
 	  
