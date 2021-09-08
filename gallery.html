@@ -145,6 +145,7 @@ async function GetList(){
   const Dict = await source.get();
   List = Object.values(Dict.data());
   //AddList(List);
+  af(List);
 }
 
 async function Get(){
@@ -152,6 +153,9 @@ async function Get(){
   console.log("test:1");
   const nameList = await a.get();
   console.log("0", nameList.data() );
+}
+function af(PicList){
+  console.log("after", PicList);
 }
 
 function AddList(PicList){
@@ -170,6 +174,7 @@ function AddList(PicList){
 }
 
 GetList();
+
 
 
 	  
