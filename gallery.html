@@ -139,22 +139,23 @@
 	  
     let st = firebase.storage().ref();
 	  
-    async function GetList(){
+   async function GetList(){
     var List;
     db.collection("pics").doc("name")
     .get().then(function (nameList) {
       List = Object.values(nameList.data());
       console.log("Got list: ", List);
-      return List;
     })
     .catch(function(e){
       List = null;
       console.log("could not get list: ", e);
-      throw null
     });
+  return List;
 }  
   
-GetList().then(PicArr =>{
+async function AddList(){
+  var PicArr =  await GetList();
+
   var PicStage = document.getElementById("pic");
 
   for(pic in PicArr){
@@ -167,13 +168,9 @@ GetList().then(PicArr =>{
       PicStage.appendChild(addImg);
     });
   }
-});
+}
 
-GetList().catch(e=>{
-  console.log("error");
-});
-
-GetList();
+AddList();
 	  
 	  /*
 async function GetList(){
