@@ -151,19 +151,20 @@ function GetList(){
     console.log("could not get list: ", e);
   });
 }
-async function Get(){
+
+async function GetAsync(){
   a = db.collection("pics").doc("name");
-  console.log("test:0");
+  console.log("test:1");
   const nameList = await a.get();
-  console.log("0", nameList );
-  console.log("1", nameList );
-  console.log("2", nameList );
-  console.log("3", nameList );
-  console.log("4", nameList );
-  console.log("5", nameList );
-  console.log("6", nameList );
-  console.log("7", nameList );
-  console.log("8", nameList );
+  console.log("0", nameList.data() );
+  console.log("1", nameList.data() );
+  console.log("2", nameList.data() );
+  console.log("3", nameList.data() );
+  console.log("4", nameList.data() );
+  console.log("5", nameList.data() );
+  console.log("6", nameList.data() );
+  console.log("7", nameList.data() );
+  console.log("8", nameList.data() );
 }
 
 function AddList(PicArr){
@@ -188,6 +189,7 @@ function AddList(PicArr){
 }
 
 Get();
+
 	  
 	  /*
 async function GetList(){
