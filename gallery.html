@@ -154,26 +154,30 @@ async function Get(){
   const nameList = await a.get();
   console.log("0", nameList.data() );
 }
-function af(PicList){
+
+async function af(PicList){
   console.log("after", PicList);
 }
 
-function AddList(PicList){
+async function AddList(PicList){
   var PicStage = document.getElementById("pic");
 
   for(pic in PicList){
     ref = st.child(pic);
-    ref.getDownloadURL().then((url) => {
+    /*
+      ref.getDownloadURL().then((url) => {
       var addImg = document.createElement("img");
       addImg.src = url;
       addImg.title = url.substr(0, 4);
       addImg.alt = url.substr(0, 4);
       PicStage.appendChild(addImg);
     });
+    */
   }
 }
 
 GetList();
+
 
 
 
