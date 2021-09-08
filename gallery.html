@@ -139,7 +139,7 @@
 	  
     let st = firebase.storage().ref();
 	  
-   async function GetList(){
+async function GetList(){
     var List;
     db.collection("pics").doc("name")
     .get().then(function (nameList) {
@@ -154,11 +154,14 @@
 }  
   
 async function AddList(){
+  console.log("0");
   var PicArr =  await GetList();
+  console.log("1");
 
   var PicStage = document.getElementById("pic");
 
   for(pic in PicArr){
+    console.log("2");
     ref = st.child(pic);
     ref.getDownloadURL().then((url) => {
       var addImg = document.createElement("img");
