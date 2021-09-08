@@ -151,8 +151,9 @@ async function AddList(PicList){
   var PicStage = document.getElementById("pic");
 
   for(i in PicList){
-    var addDiv = document.createElement("div");
-    addDiv.appendChild(document.createTextNode(
+    var addUi = document.createElement("ui");
+    var addLiTex = document.createElement("li");
+    addLiTex.appendChild(document.createTextNode(
       PicList[i].substr(0, PicList[i].length-4))
     );
 
@@ -166,13 +167,17 @@ async function AddList(PicList){
     addImg.height = `${window.innerWidth/4}`;
     addImg.width = `${window.innerWidth/4}`;
 
-    addDiv.appendChild(addImg);
-    PicStage.appendChild(addDiv);
+    var addLiImg = document.createElement("Li");
+    addLiImg.appendChild(addImg);
+    //addDiv.appendChild(addImg);
+    addUi.appendChild(addLiTex);
+    addUi.appendChild(addLiImg);
+    addUi.style.display = "flex";
+    PicStage.appendChild(addUi);
   }
 }
 
 GetList();
-
 
 
   </script>
