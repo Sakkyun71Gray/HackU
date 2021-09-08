@@ -148,18 +148,19 @@ function GetList(){
     .get().then(function (nameList) {
       List = Object.values(nameList.data());
       console.log("Got list: ", List);
+      resolve(List);
     })
     .catch(function(e){
       List = null;
       console.log("could not get list: ", e);
+      resolve(List);
     });
     console.log("resolve");
-    resolve(List);
   });
 }  
   
 async function AddList(){
-  console.log("test:0");
+  console.log("test:1");
   console.log("0");
   var PicArr =  await GetList();
   console.log("1", PicArr);
@@ -178,6 +179,8 @@ async function AddList(){
     });
   }
 }
+
+AddList();
 
 AddList();
 	  
