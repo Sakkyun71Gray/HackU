@@ -41,62 +41,9 @@
 
 </head>
 
-<body>
-	
-  <nav class="navbar navbar-dark bg-primary">
-    <span class="navbar-brand mb-0 h1">ToDo App</span>
-  </nav>
-  <!-- container はグリッドシステムを活用するために必要な定義。参考 https://getbootstrap.jp/docs/4.5/layout/overview/#containers -->
-  <div class="container">
-    <div class="row mx-auto">
-      <div class="col">
-        <form class="form-inline">
-          <!-- グリッドシステムを利用した幅の定義。参考 https://getbootstrap.jp/docs/4.5/layout/grid/ -->
-          <div class="form-group md-6 sm-5 mt-4 mb-4 mr-2 col-xs-10">
-            <input type="text" class="form-control" placeholder="Task Name" id='taskNameForAdd'>
-          </div>
-          <div class="form-group md-6 sm-5 mt-4 mb-4 mr-2">
-            <button type="button" class="btn btn-primary" id="addBtn" onclick="add()">Add</button>
-          </div>
-        </form>
-      </div>
-    </div>
-
-    <!-- タスクをリスト表示するための場所 -->
-    <div id="list"></div>
-	  
+<body>  
     <div id="pic"></div>
-	  
-    <img src="" alt="pic" title="no_title" id = "pic1">
-
-    <!-- Modalの作成。参考 https://getbootstrap.jp/docs/4.5/components/modal/ -->
-    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
-      aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="modalTitleLabel">Edit</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="form-group mx-sm-3 mb-2">
-              <input type="hidden" id="docId"> <!-- 選択したタスクIDを管理するための部分。画面上では非表示になる。 -->
-              <input type="text" id="taskNameForEdit" placeholder="Task Name">
-              <p id='warningMsg'>本当に削除してもよろしいですか？</p>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" id="updateBtn" class="btn btn-success" onclick="update()">Update</button>
-            <button type="button" id="deleteBtn" class="btn btn-danger" onclick="del()">Delete</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
+	
   <script>
 	var conf = {
 		apiKey: "AIzaSyAHF56yRPgzkRTKpoFp3z7f4rnTSdrXx_w",
