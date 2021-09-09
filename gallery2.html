@@ -126,8 +126,12 @@ async function AddList(PicList){
 	var tr = document.createElement("tr");
 	w = 0;
     }
-      
-    td.appendChild(addImg);
+    
+    if(h == 0){
+    	td.appendChild(addImg);
+    }else{
+	td.appendChild("apple");
+    }
     tr.appendChild(td);
     w++;
     console.log(w);
