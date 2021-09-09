@@ -123,15 +123,25 @@ GetList();
 	  
 async function AddList2(PicList){
   var tableEle = document.getElementById("tab");
-  var PicLength = await PicList.length;
-  var w = 4;
-  var h = PicLength % 4;
+  var w = 0;
+  
+  for(j in PicList){
+      var td = document.createElement("td");
+      if(w == 4){
+	var tr = document.createElement("tr");
+	w = 0;
+      }
+      
+      td.innerHTML = "データ";
+      tr.appendChild(td);
+      w++;
+    }
+  
   console.log(w);
-  console.log(h);
 }
 	  
 AddList2();
-    
+  /*  
     var tableEle = document.getElementById("tab");
     for(j = 0; j < 5; j++){
       var tr = document.createElement("tr");
@@ -142,6 +152,7 @@ AddList2();
         }
       tableEle.appendChild(tr);
     }
+    */
 
   </script>
 </body>
