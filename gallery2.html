@@ -117,7 +117,11 @@ async function AddList(PicList){
 }
 
 
-async function AddList(PicList){
+
+
+GetList();
+	  
+async function AddList2(PicList){
   var tableEle = document.getElementById("tab");
   var PicLength = PicList.length;
   var w = 4;
@@ -125,6 +129,8 @@ async function AddList(PicList){
   console.log(w);
   console.log(h);
 }
+	  
+AddList2();
     
     var tableEle = document.getElementById("tab");
     for(j = 0; j < 5; j++){
@@ -136,8 +142,6 @@ async function AddList(PicList){
         }
       tableEle.appendChild(tr);
     }
-
-GetList();
 
   </script>
 </body>
