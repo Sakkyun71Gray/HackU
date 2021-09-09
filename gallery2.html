@@ -115,6 +115,16 @@ async function AddList(PicList){
     PicStage.appendChild(addUi);
   }
 }
+
+
+async function AddList(PicList){
+  var tableEle = document.getElementById("tab");
+  var PicLength = PicList.length;
+  var w = 4;
+  var h = PicLength % 4;
+  console.log(w);
+  console.log(h);
+}
     
     var tableEle = document.getElementById("tab");
     for(j = 0; j < 5; j++){
