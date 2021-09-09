@@ -87,7 +87,7 @@ async function GetList(){
 }
 
 async function AddList(PicList){
-  var PicStage = document.getElementById("pic");
+  //var PicStage = document.getElementById("pic");
   var tableEle = document.getElementById("tab");
   var w = 0;
   var tr = document.createElement("tr");
@@ -108,7 +108,9 @@ async function AddList(PicList){
     addImg.alt = PicList[i].substr(0, PicList[i].length-4);
     addImg.height = `${window.innerWidth/4}`;
     addImg.width = `${window.innerWidth/4}`;
-
+	  
+	  
+    /*
     var addLiImg = document.createElement("li");
     addLiImg.appendChild(addImg);
     //addDiv.appendChild(addImg);
@@ -116,6 +118,7 @@ async function AddList(PicList){
     addUi.appendChild(addLiImg);
     addUi.style.display = "flex";
     PicStage.appendChild(addUi);
+    */
 	  
     var td = document.createElement("td");
     if(w == 4){
