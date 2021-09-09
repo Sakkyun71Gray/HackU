@@ -124,19 +124,13 @@ async function AddList(PicList){
     if(w == 4){
 	tableEle.appendChild(tr);
 	tr = document.createElement("tr");
-	
-	for(j = 0; j < 4; j++){
-	  td = document.createElement("td");
-	  td.appendChild(addImg);
-	  tr.appendChild(td);
-	}
-	
-	tableEle.appendChild(tr);
-	tr = document.createElement("tr");
 	w = 0;
     }
     td.appendChild(addImg);
     tr.appendChild(td);
+    td.innerHTML = "Title";
+    tr.appendChild(td);
+    
     w++;
     console.log(w);
   }
