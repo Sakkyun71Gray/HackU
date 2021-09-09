@@ -88,6 +88,8 @@ async function GetList(){
 
 async function AddList(PicList){
   var PicStage = document.getElementById("pic");
+  var tableEle = document.getElementById("tab");
+  var w = 4;
 
   for(i in PicList){
     var addUi = document.createElement("ui");
@@ -113,6 +115,16 @@ async function AddList(PicList){
     addUi.appendChild(addLiImg);
     addUi.style.display = "flex";
     PicStage.appendChild(addUi);
+	  
+    var td = document.createElement("td");
+    if(w == 4){
+	var tr = document.createElement("tr");
+	w = 0;
+    }
+      
+    td.innerHTML = "データ";
+    tr.appendChild(td);
+    w++;
   }
 }
 
@@ -120,7 +132,8 @@ async function AddList(PicList){
 
 
 GetList();
-	  
+
+	  /*
 async function AddList2(PicList){
   var tableEle = document.getElementById("tab");
   var w = 0;
@@ -139,8 +152,9 @@ async function AddList2(PicList){
   
   console.log(w);
 }
+*/
 	  
-AddList2();
+//AddList2();
   /*  
     var tableEle = document.getElementById("tab");
     for(j = 0; j < 5; j++){
