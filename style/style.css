@@ -9,7 +9,7 @@
 body {
   //background: #009c64;
 　background: #;
-  width: 100%; /* リキッド */
+  width: 100%;
   max-width: 1080px; /* 幅の上限 */
   min-width: 200px; /* 幅の下限 */
   margin: 0px auto
