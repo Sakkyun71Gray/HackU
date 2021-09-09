@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="Keywords" content="norobot">
+
+  <!--  -->
+  <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-storage.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+  </script>
+
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <title>gallery</title>
+
+  <style>
+    .fontBlue {
+      color: blue;
+    }
+
+    .fontRed {
+      color: red;
+    }
+  </style>
+
+</head>
+
+<body>  
+    <div id="pic"></div>
+  
+    <table id ="tab"></table>
+	
+	
+  <script>
+	var conf = {
+		apiKey: "AIzaSyAHF56yRPgzkRTKpoFp3z7f4rnTSdrXx_w",
+		authDomain: "test-firebase-8572c.firebaseapp.com",
+		databaseURL: "https://test-firebase-8572c.firebaseio.com",
+		projectId: "test-firebase-8572c",
+		storageBucket: "test-firebase-8572c.appspot.com",
+		messagingSenderId: "370709220522",
+		appId: "1:370709220522:web:af5bea73f620f2e382d4d3",
+		measurementId: "G-1FC7438WJQ"
+	}
+	
+	firebase.initializeApp(conf);
+	  
+	var account = {
+		pass: "abcdefg",
+		email: "HackU@gmail.com"
+	}
+	
+	firebase.auth().signInWithEmailAndPassword(account.email, account.pass)
+	  .then(function() {
+	    console.log("login success");
+	  })
+	  .catch(function() {
+	    console.log("login failed");
+	  });
+	  
+    let db = firebase.firestore(); // データベースに関する機能の取得
+	  
+    let st = firebase.storage().ref();
+	  
+async function GetList(){
+  var List;
+  source = db.collection("pics").doc("name");
+  var Dict = await source.get();
+  List = Object.values(Dict.data());
+  AddList(List);
+}
+
+async function AddList(PicList){
+  var PicStage = document.getElementById("pic");
+
+  for(i in PicList){
+    var addUi = document.createElement("ui");
+    var addLiTex = document.createElement("li");
+    addLiTex.appendChild(document.createTextNode(
+      PicList[i].substr(0, PicList[i].length-4))
+    );
+
+    console.log(PicList[i].substr(0, PicList[i].length-4));
+    ref = st.child(PicList[i]);
+    var url = await ref.getDownloadURL();
+    var addImg = document.createElement("img");
+    addImg.src = url;
+    addImg.title = PicList[i].substr(0, PicList[i].length-4);
+    addImg.alt = PicList[i].substr(0, PicList[i].length-4);
+    addImg.height = `${window.innerWidth/4}`;
+    addImg.width = `${window.innerWidth/4}`;
+
+    var addLiImg = document.createElement("li");
+    addLiImg.appendChild(addImg);
+    //addDiv.appendChild(addImg);
+    addUi.appendChild(addLiTex);
+    addUi.appendChild(addLiImg);
+    addUi.style.display = "flex";
+    PicStage.appendChild(addUi);
+  }
+}
+    
+    var tableEle = documentElementById("tab");
+    for(j = 0; j < 5; j++){
+      var tr = document.createElement("tr");
+        for(k = 0; k < 5; k++){
+          var td = document.createElement("td");
+          td.innerHTML = "データ";
+          tr.appendChild(td);
+        }
+      tableEle.appendChild(tr);
+    }
+
+GetList();
+
+  </script>
+</body>
+
+</html>
