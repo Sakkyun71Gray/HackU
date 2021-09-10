@@ -52,7 +52,7 @@ header{
     background: #0090aa;
   }
 .cat1 {
-  background: #009c64;
+  background: background: url(images/e0056_1_2.png) center / cover no-repeat;
   background-size: cover;
   //color: rgba(255,255,255,.7);
 }
