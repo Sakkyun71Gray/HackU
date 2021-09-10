@@ -80,6 +80,10 @@ header{
   width: 90%;
 }
 
+hr{
+  border-top: 3px dashed;
+}
+
 .bnr {
 	text-align: center;
 }
