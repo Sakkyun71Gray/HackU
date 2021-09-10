@@ -74,6 +74,12 @@ header{
   //color: rgba(0,0,0,.7);
 }
 
+.v-middle {
+  vertical-align: middle;
+  display: inline-block;
+  width: 90px;
+}
+
 .bnr {
 	text-align: center;
 }
