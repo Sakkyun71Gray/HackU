@@ -78,20 +78,6 @@ header{
 	opacity: 0;
 }
 
-.sample-box {
-    position: relative;
-}
-
-.imageon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    position: absolute;
-    top: auto;
-    left: auto;
-}
-
 @media all and (min-width: 500px) {
   .wrapper {
     display: flex;
