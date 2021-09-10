@@ -42,14 +42,14 @@ body {
     background: #0090aa;
   }
 .cat1 {
-  background: url(http://webcreatorbox.com/sample/images/cat1.jpg) no-repeat top center;
+  background: #009c64;
   background-size: cover;
-  color: rgba(255,255,255,.7);
+  //color: rgba(255,255,255,.7);
 }
 .cat2 {
-  background: url(http://webcreatorbox.com/sample/images/cat2.jpg) no-repeat top center;
+  background: #FFFFFF;
   background-size: cover;
-  color: rgba(0,0,0,.7);
+  //color: rgba(0,0,0,.7);
 }
 
 @media all and (min-width: 500px) {
