@@ -210,6 +210,19 @@ margin: 0;
 .news{
 background:#fff;
 }
+
+.column {
+  height: 100vh;
+  width: 100%;
+}
+.cat1 {
+  background: #FFFFFF;
+  background-size: cover;
+}
+.cat2 {
+  background: #009c64;
+  background-size: cover;
+}
 </style>
 
 <script>
