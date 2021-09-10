@@ -62,6 +62,22 @@ header{
   //color: rgba(0,0,0,.7);
 }
 
+.bnr {
+	text-align: center;
+}
+.bnr a {
+	display: inline-block;
+	background: url(images/e0056_1_2.png) center / cover no-repeat;
+  background-size: 70%;
+}
+.bnr a img {
+	vertical-align: middle;
+	transition: opacity .3s;
+}
+.bnr a:hover img {
+	opacity: 0;
+}
+
 @media all and (min-width: 500px) {
   .wrapper {
     display: flex;
