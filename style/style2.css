@@ -7,8 +7,11 @@
 }
 
 body {
-  background: #000;
-  font-family: "Nico Moji", sans-serif;
+  background:linear-gradient(90deg,#009c64 0%,#009c64 50%,#FFFFFF 50%,#FFFFFF 100%);
+  width: 100%;
+  max-width: 1080px; /* 幅の上限 */
+  min-width: 200px; /* 幅の下限 */
+  margin: 0px auto
 }
 
 .column {
