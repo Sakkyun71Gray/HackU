@@ -81,7 +81,7 @@ header{
 }
 
 hr{
-  border-top: 5px ;
+  border-top: 5px solid #000000;
 }
 
 .bnr {
